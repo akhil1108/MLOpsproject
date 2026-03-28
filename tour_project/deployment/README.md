@@ -1,3 +1,4 @@
+---
 title: Project
 emoji: 🚀
 colorFrom: red
@@ -8,3 +9,4 @@ tags:
   - streamlit
 pinned: false
 short_description: Predict the sale of the new package
+---
