@@ -2,7 +2,7 @@
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 from huggingface_hub import HfApi, create_repo
 import os
-from tour_project.config import HF_REPO_ID
+from tour_project/config import HF_REPO_ID
 
 repo_id = HF_REPO_ID #repo_id from config file
 repo_type = "dataset"
