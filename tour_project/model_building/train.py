@@ -33,62 +33,6 @@ Xtest = pd.read_csv(Xtest_path)
 ytrain = pd.read_csv(ytrain_path)
 ytest = pd.read_csv(ytest_path)
 
-# List of numerical features in the dataset
-numeric_features = [
-    'Age',                       # Age of Customer
-    'CityTier',                  #City Tier
-    'DurationOfPitch',           # Time taken to complete a pitch
-    'NumberOfPersonVisiting',    # People visited during the pitch
-    'NumberOfFollowups',         # Total number of follow ups done post pitch
-    'PreferredPropertyStar',     # Prefered property
-    'NumberOfTrips',             # number of trips customer takes anually
-    'PitchSatisfactionScore',     # Score indicating the customer's satisfaction
-    'MonthlyIncome',              # Gross monthly income of the customer
-    'OwnCar',                     # Whether the customer owns a car
-    'Passport',                    #does the customer holds a passport
-    'NumberOfChildrenVisiting',   #number of children below 5 yrs
-]
-
-# List of categorical features in the dataset
-categorical_features = [
-    'TypeofContact',         # How customer contacted
-    'Occupation',            # Occupation of customer
-    'Gender',                 # Gender of customer
-    'MaritalStatus',          #marital status of cutomer
-    'Designation',            # work designation
-    'ProductPitched',         # product pitched
-]
-
-# Iterate through each categorical feature and apply LabelEncoder
-for col in categorical_features:
-    label_encoder = LabelEncoder()
-    tourist_dataset[col] = label_encoder.fit_transform(tourist_dataset[col].astype(str))
-
-# Define predictor matrix (X) using selected numeric and categorical features
-X = tourist_dataset[numeric_features + categorical_features]
-
-# Define target variable
-y = tourist_dataset[target]
-
-
-# Split dataset into train and test
-# Split the dataset into training and test sets
-Xtrain, Xtest, ytrain, ytest = train_test_split(
-    X, y,              # Predictors (X) and target variable (y)
-    test_size=0.4,     # 20% of the data is reserved for testing
-    random_state=42    # Ensures reproducibility by setting a fixed random seed
-)
-
-# Set the clas weight to handle class imbalance
-class_weight = ytrain.value_counts()[0] / ytrain.value_counts()[1]
-class_weight
-
-# Define the preprocessing steps
-preprocessor = make_column_transformer(
-    (StandardScaler(), numeric_features),
-    (OneHotEncoder(handle_unknown='ignore'), categorical_features)
-)
-
 # Define base XGBoost model
 xgb_model = xgb.XGBClassifier(scale_pos_weight=class_weight, random_state=42)
 
