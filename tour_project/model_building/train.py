@@ -1,6 +1,6 @@
 # for data manipulation
 import pandas as pd
-from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 from sklearn.compose import make_column_transformer
 from sklearn.pipeline import make_pipeline
 # for model training, tuning, and evaluation
@@ -66,7 +66,7 @@ class_weight
 # Define the preprocessing steps
 preprocessor = make_column_transformer(
     (StandardScaler(), numeric_features),
-    (LabelEncoder(), categorical_features)
+    (OrdinalEncoder(handle_unknown='ignore'), categorical_features)
 )
 
 # Define base XGBoost model
