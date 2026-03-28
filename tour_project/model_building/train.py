@@ -66,7 +66,7 @@ class_weight
 # Define the preprocessing steps
 preprocessor = make_column_transformer(
     (StandardScaler(), numeric_features),
-    (LabelEncoder(handle_unknown='ignore'), categorical_features)
+    (LabelEncoder(), categorical_features)
 )
 
 # Define base XGBoost model
