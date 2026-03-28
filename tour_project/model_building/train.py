@@ -33,6 +33,10 @@ Xtest = pd.read_csv(Xtest_path)
 ytrain = pd.read_csv(ytrain_path)
 ytest = pd.read_csv(ytest_path)
 
+# Set the class weight to handle class imbalance
+class_weight = ytrain.value_counts()[0] / ytrain.value_counts()[1]
+class_weight
+
 # Define base XGBoost model
 xgb_model = xgb.XGBClassifier(scale_pos_weight=class_weight, random_state=42)
 
