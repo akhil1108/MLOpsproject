@@ -39,7 +39,7 @@ numeric_features = [
     'CityTier',                  #City Tier
     'DurationOfPitch',           # Time taken to complete a pitch
     'NumberOfPersonVisiting',    # People visited during the pitch
-    'NumberOfFollowups',         # Total number of follow ups done post pitch
+    'NumberOfFollowups',         # Total number of follow-ups done post pitch
     'PreferredPropertyStar',     # Prefered property
     'NumberOfTrips',             # number of trips customer takes anually
     'PitchSatisfactionScore',     # Score indicating the customer's satisfaction
