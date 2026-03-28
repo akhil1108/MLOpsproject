@@ -49,12 +49,12 @@ input_data = pd.DataFrame([{
     'OwnCar': 1 if OwnCar == "Yes" else 0,
     'Passport': 1 if Passport == "Yes" else 0,
     'NumberOfChildrenVisiting': NumberOfChildrenVisiting,
-    'TypeofContact': {"Company Invited": 1, "Self Enquiry": 0}[TypeofContact],
-    'Occupation': {"Freelancer": 1, "Salaried": 3, "Large Business": 2, "Small Business": 3}[Occupation],
-    'Gender': {"Male": 1, "Female": 0}[Gender],
-    'MaritalStatus': {"Married": 2, "Divorced": 1, "Single": 3, "Unmarried": 4}[MaritalStatus],
-    'Designation': {"Executive": 2, "Manager": 3, "AVP": 1, "Senior Manager": 4, "VP": 5}[Designation],
-    "ProductPitched": {"Basic": 1, "Standard": 4, "Deluxe": 2,  "King": 3, "Super Delux": 5}[ProductPitched]
+    'TypeofContact': {"Company Invited", "Self Enquiry"}[TypeofContact],
+    'Occupation': {"Freelancer", "Salaried", "Large Business", "Small Business"}[Occupation],
+    'Gender': {"Male", "Female"}[Gender],
+    'MaritalStatus': {"Married", "Divorced", "Single", "Unmarried"}[MaritalStatus],
+    'Designation': {"Executive", "Manager", "AVP", "Senior Manager", "VP"}[Designation],
+    "ProductPitched": {"Basic", "Standard", "Deluxe",  "King", "Super Deluxe"}[ProductPitched]
 }])
 
 if st.button("Predict Sales"):
