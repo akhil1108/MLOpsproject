@@ -37,6 +37,12 @@ ytest = pd.read_csv(ytest_path)
 class_weight = ytrain.value_counts()[0] / ytrain.value_counts()[1]
 class_weight
 
+# Define the preprocessing steps
+preprocessor = make_column_transformer(
+    (StandardScaler(), numeric_features),
+    (LabelEncoder(handle_unknown='ignore'), categorical_features)
+)
+
 # Define base XGBoost model
 xgb_model = xgb.XGBClassifier(scale_pos_weight=class_weight, random_state=42)
 
