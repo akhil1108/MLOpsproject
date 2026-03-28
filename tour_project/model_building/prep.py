@@ -46,11 +46,6 @@ categorical_features = [
     'ProductPitched',         # product pitched
 ]
 
-# Iterate through each categorical feature and apply LabelEncoder
-for col in categorical_features:
-    label_encoder = LabelEncoder()
-    tourist_dataset[col] = label_encoder.fit_transform(tourist_dataset[col].astype(str))
-
 # Define predictor matrix (X) using selected numeric and categorical features
 X = tourist_dataset[numeric_features + categorical_features]
 
