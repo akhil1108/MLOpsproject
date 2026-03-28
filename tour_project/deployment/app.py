@@ -4,9 +4,6 @@ from huggingface_hub import hf_hub_download, login
 import joblib
 import os
 
-# Authenticate with Hugging Face Hub (important for private models or rate limits)
-login(token=os.getenv("HF_TOKEN"))
-
 # Download the model from the Model Hub
 model_path = hf_hub_download(repo_id="Akhilesh1108/predict-model", filename="best_predict_model_v1.joblib")
 
